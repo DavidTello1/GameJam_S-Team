@@ -20,11 +20,15 @@ public class Movement : MonoBehaviour
     public Vector3 moveDirection = Vector3.zero;
     public EngineerPush ePush;
 
+    private AudioSource runningSound;
+    private float walk_time = 0f; 
+
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         ePush = GetComponent<EngineerPush>();
+        runningSound = GetComponent<AudioSource>(); 
     }
 
     void Update()
@@ -65,6 +69,21 @@ public class Movement : MonoBehaviour
             //change animation
             float param_value = Mathf.Abs(moveDirection.magnitude);
             anim.SetFloat("Speed", param_value);
+
+
+
+            if(dir.magnitude > 0)
+            {
+                walk_time += Time.deltaTime;
+
+                if (walk_time > 0.4f)
+                {
+                    runningSound.Play();
+                    walk_time = 0f;
+                }
+                    
+            }
+                
 
             if (Input.GetButton("Jump") && !restrict_movement)
             {
