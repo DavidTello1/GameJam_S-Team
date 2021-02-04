@@ -44,6 +44,9 @@ public class PlayerManager : MonoBehaviour
         position = active.transform.position;
         rotation = active.transform.rotation;
 
+        if (active.GetComponent<Movement>().restrict_movement)
+            return;
+
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
             if(player != ActivePlayer.Green)

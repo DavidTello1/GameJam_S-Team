@@ -10,6 +10,8 @@ public class EnviroTablet : MonoBehaviour
 
     public bool correct = false;
 
+    GameObject player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -22,6 +24,7 @@ public class EnviroTablet : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) && input.gameObject.activeInHierarchy)
         {
             input.text = "";
+            player.GetComponent<Movement>().restrict_movement = false;
             input.gameObject.SetActive(false);
         }
 
@@ -36,7 +39,8 @@ public class EnviroTablet : MonoBehaviour
         if (other.gameObject.CompareTag("Player") && !correct)
         {
             input.gameObject.SetActive(true);
-           
+            player = other.gameObject;
+            player.GetComponent<Movement>().restrict_movement = true;
         }
         
     }
