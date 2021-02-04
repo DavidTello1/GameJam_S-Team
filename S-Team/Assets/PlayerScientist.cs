@@ -60,7 +60,6 @@ public class PlayerScientist : MonoBehaviour
     private void FixedUpdate()
     {
         transform.localScale = Vector3.Lerp(last_size, new Vector3(currentSize, currentSize, currentSize), time);
-        Debug.Log(time);
     }
 
     private void Shrink()
