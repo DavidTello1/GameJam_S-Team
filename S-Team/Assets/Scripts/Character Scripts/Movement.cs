@@ -8,18 +8,21 @@ public class Movement : MonoBehaviour
     Animator anim;
 
     public float speed = 6.0f;
+    public float slowSpeed = 0.5f;
     public float jumpSpeed = 8.0f;
     public float gravity = 20.0f;
 
     public float turnSmoothTime = 0.1f;
     float turnSmoothVelocity;
 
-    private Vector3 moveDirection = Vector3.zero;
+    public Vector3 moveDirection = Vector3.zero;
+    public EngineerPush ePush;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
+        ePush = GetComponent<EngineerPush>();
     }
 
     void Update()
@@ -38,10 +41,17 @@ public class Movement : MonoBehaviour
 
         if (characterController.isGrounded)
         {
+            
             // We are grounded, so recalculate
             // move direction directly from axes
+            //moveDirection = dir;
+
             moveDirection = dir;
-            moveDirection *= speed;
+
+            if (ePush == null)
+                moveDirection *= speed;
+            else
+                moveDirection *= ePush.isPushing ? slowSpeed : speed;
 
             //change animation
             float param_value = Mathf.Abs(moveDirection.magnitude);
@@ -60,5 +70,10 @@ public class Movement : MonoBehaviour
 
         // Move the controller
         characterController.Move(moveDirection * Time.deltaTime);
+    }
+    
+    public Vector3 GetMovementVector()
+    {
+        return moveDirection;
     }
 }
