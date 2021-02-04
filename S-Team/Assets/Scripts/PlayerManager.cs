@@ -142,4 +142,9 @@ public class PlayerManager : MonoBehaviour
 
         return name;
     }
+
+    public int GetActivePlayer()
+    {
+        return (int)player;
+    }
 }
