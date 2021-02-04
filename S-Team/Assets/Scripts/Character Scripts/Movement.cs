@@ -22,22 +22,22 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
+        float horizontal = Input.GetAxis("Horizontal");
+        float vertical = Input.GetAxis("Vertical");
+        Vector3 dir = new Vector3(horizontal, 0.0f, vertical);
+
+        float targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+
         if (characterController.isGrounded)
         {
             // We are grounded, so recalculate
             // move direction directly from axes
-            float horizontal = Input.GetAxis("Horizontal");
-            float vertical = Input.GetAxis("Vertical");
-            moveDirection = new Vector3(horizontal, 0.0f, vertical);
-
-            float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg;
-            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-            transform.rotation = Quaternion.Euler(0f, angle, 0f);
-
+            moveDirection = dir;
             moveDirection *= speed;
 
             
-
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
