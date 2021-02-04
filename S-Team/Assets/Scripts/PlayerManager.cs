@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 enum ActivePlayer
 {
@@ -19,11 +20,19 @@ public class PlayerManager : MonoBehaviour
     public GameObject purple;
     public GameObject blue;
 
+    [Header("UI Icons")]
+    public Image science;
+    public Image tech;
+    public Image engine;
+    public Image art;
+    public Image math;
+
     GameObject active;
     ActivePlayer player;
     Vector3 position;
     Quaternion rotation;
 
+    [Header("Camera")]
     public GameObject camera;
 
     // Start is called before the first frame update
@@ -31,6 +40,7 @@ public class PlayerManager : MonoBehaviour
     {
         active = GameObject.Instantiate(green, Vector3.zero, Quaternion.identity);
         player = ActivePlayer.Green;
+        SetActiveUI((int)player);
 
         camera.GetComponent<FollowCamera>().target = active.transform;
 
@@ -59,6 +69,7 @@ public class PlayerManager : MonoBehaviour
                 active = GameObject.Instantiate(green, position, rotation);
                 camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Green;
+                SetActiveUI((int)player);
             }
             
         }
@@ -74,6 +85,7 @@ public class PlayerManager : MonoBehaviour
                 active = GameObject.Instantiate(orange, position, rotation);
                 camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Orange;
+                SetActiveUI((int)player);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha3))
@@ -88,6 +100,7 @@ public class PlayerManager : MonoBehaviour
                 active = GameObject.Instantiate(yellow, position, rotation);
                 camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Yellow;
+                SetActiveUI((int)player);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha4))
@@ -102,6 +115,7 @@ public class PlayerManager : MonoBehaviour
                 active = GameObject.Instantiate(purple, position, rotation);
                 camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Purple;
+                SetActiveUI((int)player);
             }
         }
         else if (Input.GetKeyDown(KeyCode.Alpha5))
@@ -116,6 +130,7 @@ public class PlayerManager : MonoBehaviour
                 active = GameObject.Instantiate(blue, position, rotation);
                 camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Blue;
+                SetActiveUI((int)player);
             }
         }
     }
@@ -149,5 +164,50 @@ public class PlayerManager : MonoBehaviour
     public int GetActivePlayer()
     {
         return (int)player;
+    }
+
+    void SetActiveUI(int player)
+    {
+        Color white = new Color(1f, 1f, 1f, 1f);
+        Color dark = new Color(0.5f, 0.5f, 0.5f, 1f);
+
+        switch (player) //138
+        {
+            case (int)ActivePlayer.Green:
+                science.color = white;
+                tech.color = dark;
+                engine.color = dark;
+                art.color = dark;
+                math.color = dark;
+                break;
+            case (int)ActivePlayer.Orange:
+                science.color = dark;
+                tech.color = white;
+                engine.color = dark;
+                art.color = dark;
+                math.color = dark;
+                break;
+            case (int)ActivePlayer.Yellow:
+                science.color = dark;
+                tech.color = dark;
+                engine.color = white;
+                art.color = dark;
+                math.color = dark;
+                break;
+            case (int)ActivePlayer.Purple:
+                science.color = dark;
+                tech.color = dark;
+                engine.color = dark;
+                art.color = white;
+                math.color = dark;
+                break;
+            case (int)ActivePlayer.Blue:
+                science.color = dark;
+                tech.color = dark;
+                engine.color = dark;
+                art.color = dark;
+                math.color = white;
+                break;
+        }
     }
 }
