@@ -5,6 +5,7 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     CharacterController characterController;
+    Animator anim;
 
     public float speed = 6.0f;
     public float jumpSpeed = 8.0f;
@@ -18,6 +19,7 @@ public class Movement : MonoBehaviour
     void Start()
     {
         characterController = GetComponent<CharacterController>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -26,9 +28,13 @@ public class Movement : MonoBehaviour
         float vertical = Input.GetAxis("Vertical");
         Vector3 dir = new Vector3(horizontal, 0.0f, vertical);
 
-        float targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
-        float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
-        transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        if(dir.magnitude > 0.1f)// only rotate when moving
+        {
+            float targetAngle = Mathf.Atan2(dir.x, dir.z) * Mathf.Rad2Deg;
+            float angle = Mathf.SmoothDampAngle(transform.eulerAngles.y, targetAngle, ref turnSmoothVelocity, turnSmoothTime);
+            transform.rotation = Quaternion.Euler(0f, angle, 0f);
+        }
+        
 
         if (characterController.isGrounded)
         {
@@ -37,7 +43,10 @@ public class Movement : MonoBehaviour
             moveDirection = dir;
             moveDirection *= speed;
 
-            
+            //change animation
+            float param_value = Mathf.Abs(moveDirection.magnitude);
+            anim.SetFloat("Speed", param_value);
+
             if (Input.GetButton("Jump"))
             {
                 moveDirection.y = jumpSpeed;
