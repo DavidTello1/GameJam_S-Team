@@ -39,8 +39,10 @@ public class ArtistCanvas3D : MonoBehaviour
         {
             completed = true;
             Debug.Log("Figure completed!");
+            figure.DeleteHiddenVoxels();
         }
     }
+
 
     public class Figure
     {
@@ -113,6 +115,34 @@ public class ArtistCanvas3D : MonoBehaviour
                     Debug.LogError("Invalid figure in artist canvas 3D");
                     return false;
             }
+        }
+
+        public void DeleteHiddenVoxels()
+        {
+            switch (type)
+            {
+                case ArtistCanvasType.DOOR:
+
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (current_figure[i].white)
+                            Destroy(current_figure[i].gameObject);
+                    }
+                    break;
+
+                case ArtistCanvasType.STAIR:
+                    for (int i = 0; i < 9; i++)
+                    {
+                        if (!current_figure[i].white)
+                            Destroy(current_figure[i].gameObject);
+                    }
+                    break;
+
+                default:
+                    Debug.LogError("Invalid figure in artist canvas 3D");
+                    break;
+            }
+            
         }
 
     }
