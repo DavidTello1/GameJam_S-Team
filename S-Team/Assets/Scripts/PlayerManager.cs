@@ -24,11 +24,15 @@ public class PlayerManager : MonoBehaviour
     Vector3 position;
     Quaternion rotation;
 
+    public GameObject camera;
+
     // Start is called before the first frame update
     void Start()
     {
         active = GameObject.Instantiate(green, Vector3.zero, Quaternion.identity);
         player = ActivePlayer.Green;
+
+        camera.GetComponent<FollowCamera>().target = active.transform;
 
         position = Vector3.zero;
         rotation = Quaternion.identity;
@@ -50,6 +54,7 @@ public class PlayerManager : MonoBehaviour
 
                 //Instantiate new player
                 active = GameObject.Instantiate(green, position, rotation);
+                camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Green;
             }
             
@@ -64,6 +69,7 @@ public class PlayerManager : MonoBehaviour
 
                 //Instantiate new player
                 active = GameObject.Instantiate(orange, position, rotation);
+                camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Orange;
             }
         }
@@ -77,6 +83,7 @@ public class PlayerManager : MonoBehaviour
 
                 //Instantiate new player
                 active = GameObject.Instantiate(yellow, position, rotation);
+                camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Yellow;
             }
         }
@@ -90,6 +97,7 @@ public class PlayerManager : MonoBehaviour
 
                 //Instantiate new player
                 active = GameObject.Instantiate(purple, position, rotation);
+                camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Purple;
             }
         }
@@ -103,6 +111,7 @@ public class PlayerManager : MonoBehaviour
 
                 //Instantiate new player
                 active = GameObject.Instantiate(blue, position, rotation);
+                camera.GetComponent<FollowCamera>().target = active.transform;
                 player = ActivePlayer.Blue;
             }
         }

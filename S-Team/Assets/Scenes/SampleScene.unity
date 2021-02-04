@@ -225,8 +225,8 @@ GameObject:
   - component: {fileID: 1687258585}
   - component: {fileID: 1687258584}
   - component: {fileID: 1687258582}
-  - component: {fileID: 1687258583}
   - component: {fileID: 1687258586}
+  - component: {fileID: 1687258583}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -249,39 +249,16 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1687258581}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be76e5f14cfee674cb30b491fb72b09b, type: 3}
+  m_Script: {fileID: 11500000, guid: a43a0756ca968a2419729aa2776f7bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boost: 3.5
-  positionLerpTime: 0.2
-  mouseSensitivityCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0.5
-      inSlope: 0
-      outSlope: 5
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 2.5
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  rotationLerpTime: 0.01
-  invertY: 0
+  target: {fileID: 0}
+  distance: 10
+  height: 5
+  heightDamping: 2
+  rotationDamping: 0
 --- !u!20 &1687258584
 Camera:
   m_ObjectHideFlags: 0
@@ -404,6 +381,7 @@ MonoBehaviour:
   yellow: {fileID: 1242865929218306295, guid: b7246e263cd48e246bf2e90b756fa180, type: 3}
   purple: {fileID: 5457018662463970151, guid: 0313e43a788a7a84fb79ac02c702b45b, type: 3}
   blue: {fileID: 8812803228029227985, guid: 48c4469c71f17bd42ad23b98e2456d66, type: 3}
+  camera: {fileID: 1687258581}
 --- !u!4 &1844920229
 Transform:
   m_ObjectHideFlags: 0
