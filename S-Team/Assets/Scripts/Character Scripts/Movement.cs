@@ -7,6 +7,8 @@ public class Movement : MonoBehaviour
     CharacterController characterController;
     Animator anim;
 
+    public bool restrict_movement = false;
+
     public float speed = 6.0f;
     public float slowSpeed = 0.5f;
     public float jumpSpeed = 8.0f;
@@ -29,6 +31,13 @@ public class Movement : MonoBehaviour
     {
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
+
+        if (restrict_movement)
+        {
+            horizontal = 0f;
+            vertical = 0f;
+        }
+
         Vector3 dir = new Vector3(horizontal, 0.0f, vertical);
 
         if(dir.magnitude > 0.1f)// only rotate when moving
@@ -57,7 +66,7 @@ public class Movement : MonoBehaviour
             float param_value = Mathf.Abs(moveDirection.magnitude);
             anim.SetFloat("Speed", param_value);
 
-            if (Input.GetButton("Jump"))
+            if (Input.GetButton("Jump") && !restrict_movement)
             {
                 moveDirection.y = jumpSpeed;
             }
