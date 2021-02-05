@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class BlockPush : MonoBehaviour
 {
-    public GameObject floor;
-
-    bool grounded = true;
+    private bool grounded = true;
+    private float pos_x = 0.0f;
 
     // Start is called before the first frame update
     void Start()
@@ -17,10 +16,15 @@ public class BlockPush : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // if (collision with floor == false)
-        //     grounded = false;
-
-        if (grounded == false)
+        if (grounded == true && transform.position.y < -0.74f)
+        {
+            pos_x = transform.position.x;
+            grounded = false;
+        }
+        else if (grounded == false)
+        {
+            transform.position = new Vector3(pos_x, transform.position.y, transform.position.z);
             gameObject.GetComponent<Rigidbody>().drag = 5;
+        }
     }
 }

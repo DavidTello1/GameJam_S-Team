@@ -38,7 +38,7 @@ public class Cell : MonoBehaviour
         else
         {
             is_node = false;
-            GetComponent<Image>().color = Color.white;
+            GetComponent<Image>().color = Color.black;
         }
     }
 
@@ -57,12 +57,12 @@ public class Cell : MonoBehaviour
                 foreach (GameObject cell in tech_manager.cells)
                 {
                     if (cell.GetComponent<Image>().color == tech_manager.current_color && !cell.GetComponent<Cell>().is_node)
-                        cell.GetComponent<Image>().color = Color.white;
+                        cell.GetComponent<Image>().color = Color.black;
                 }
                 UpdateCompleted(false);
             }
             else
-                tech_manager.current_color = Color.white;
+                tech_manager.current_color = Color.black;
         }
 
         if (Input.GetMouseButton(0))
@@ -74,7 +74,7 @@ public class Cell : MonoBehaviour
             }
             else
             {
-                if (GetComponent<Image>().color == Color.white)
+                if (GetComponent<Image>().color == Color.black)
                     GetComponent<Image>().color = tech_manager.current_color;
                 else
                 {
@@ -106,7 +106,7 @@ public class Cell : MonoBehaviour
                 foreach (GameObject cell in tech_manager.cells)
                 {
                     if (cell.GetComponent<Image>().color == tech_manager.current_color && !cell.GetComponent<Cell>().is_node)
-                        cell.GetComponent<Image>().color = Color.white;
+                        cell.GetComponent<Image>().color = Color.black;
                 }
             }
             else
@@ -118,11 +118,11 @@ public class Cell : MonoBehaviour
             foreach (GameObject cell in tech_manager.cells)
             {
                 if (cell != gameObject && cell.GetComponent<Image>().color == GetComponent<Image>().color && !cell.GetComponent<Cell>().is_node)
-                    cell.GetComponent<Image>().color = Color.white;
+                    cell.GetComponent<Image>().color = Color.black;
             }
-            GetComponent<Image>().color = Color.white;
+            GetComponent<Image>().color = Color.black;
         }
-        tech_manager.current_color = Color.white;
+        tech_manager.current_color = Color.black;
     }
 
     private void UpdateCompleted(bool set)
