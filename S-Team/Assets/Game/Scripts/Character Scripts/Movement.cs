@@ -54,7 +54,8 @@ public class Movement : MonoBehaviour
 
         if (characterController.isGrounded)
         {
-            
+            anim.SetBool("Grounded", true);
+
             // We are grounded, so recalculate
             // move direction directly from axes
             //moveDirection = dir;
@@ -70,9 +71,7 @@ public class Movement : MonoBehaviour
             float param_value = Mathf.Abs(moveDirection.magnitude);
             anim.SetFloat("Speed", param_value);
 
-
-
-            if(dir.magnitude > 0)
+            if(moveDirection.magnitude > 0.2f)
             {
                 walk_time += Time.deltaTime;
 
@@ -88,7 +87,12 @@ public class Movement : MonoBehaviour
             if (Input.GetButton("Jump") && !restrict_movement)
             {
                 moveDirection.y = jumpSpeed;
+                anim.SetTrigger("PlayerJump");
             }
+        }
+        else
+        {
+            anim.SetBool("Grounded", false);
         }
 
         // Apply gravity. Gravity is multiplied by deltaTime twice (once here, and once below

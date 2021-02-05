@@ -88,12 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9de2b05d6d1995a428ac2b847dcd54a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  is_node: 0
-  color: {r: 0, g: 0, b: 0, a: 0}
   pos: {x: 0, y: 0}
   prev_cell: {x: 0, y: 0}
   next_cell: {x: 0, y: 0}
-  Node: {fileID: 0}
 --- !u!114 &9180567289054573155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,21 +104,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Delegates:
-  - eventID: 2
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 7905613076775812666}
-          m_MethodName: SelectCell
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
   - eventID: 0
     callback:
       m_PersistentCalls:
@@ -137,7 +119,22 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
-  - eventID: 3
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 7905613076775812666}
+          m_MethodName: SelectCell
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 6
     callback:
       m_PersistentCalls:
         m_Calls:
