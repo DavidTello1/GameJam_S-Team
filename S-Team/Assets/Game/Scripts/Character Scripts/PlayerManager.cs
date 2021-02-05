@@ -213,4 +213,17 @@ public class PlayerManager : MonoBehaviour
                 break;
         }
     }
+
+    public void RespawnPlayer(Transform trans)
+    {
+        //Destroy active player
+        string name = ReturnName((int)player);
+        GameObject.Destroy(GameObject.Find(name));
+
+        //Instantiate new player
+        active = GameObject.Instantiate(green, trans.position, trans.rotation);
+        camera.GetComponent<FollowCamera>().target = active.transform;
+        player = ActivePlayer.Green;
+        SetActiveUI((int)player);
+    }
 }
