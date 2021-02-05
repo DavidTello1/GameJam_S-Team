@@ -8,6 +8,9 @@ public class EnviroText : MonoBehaviour
     public string operation;
     string default_text;
 
+    public TMP_FontAsset runic;
+    public TMP_FontAsset _default;
+
     public GameObject playermanager;
     PlayerManager PM;
     TextMeshPro textMesh;
@@ -18,6 +21,7 @@ public class EnviroText : MonoBehaviour
         PM = playermanager.GetComponent<PlayerManager>();
         textMesh = GetComponent<TextMeshPro>();
         default_text = textMesh.text;
+
     }
 
     // Update is called once per frame
@@ -26,12 +30,19 @@ public class EnviroText : MonoBehaviour
        if(PM.GetActivePlayer() == 4)
        {
             if(textMesh.text != operation)
+            {
+                textMesh.font = _default;
                 textMesh.text = operation;
+            }
+               
        }
        else
        {
             if (textMesh.text != default_text)
+            {
+                textMesh.font = runic;
                 textMesh.text = default_text;
+            }
        }
     }
 }

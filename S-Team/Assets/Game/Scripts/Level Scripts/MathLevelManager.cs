@@ -11,8 +11,8 @@ public class MathLevelManager : MonoBehaviour
     public Material baseMat;
     public Material emissiveMat;
 
-    private bool problemDone = false;
-    private bool pressurePlatePressed = false;
+    public GameObject tablet;
+    public GameObject plate;
 
     // Start is called before the first frame update
     void Start()
@@ -31,26 +31,16 @@ public class MathLevelManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(pressurePlatePressed)
+        if(plate.GetComponent<PressurePlate>().pressed)
         {
             foreach (Renderer rend in rendererList_L)
                 rend.material = emissiveMat;
         }
 
-        if (problemDone)
+        if (tablet.GetComponent<EnviroTablet>().correct)
         {
             foreach (Renderer rend in rendererList_R)
                 rend.material = emissiveMat;
-        }
-
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            pressurePlatePressed = !pressurePlatePressed;
-        }
-
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            problemDone = !problemDone;
         }
     }
 }
