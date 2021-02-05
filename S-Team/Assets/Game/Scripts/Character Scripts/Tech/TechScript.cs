@@ -10,12 +10,14 @@ public class TechScript : MonoBehaviour
 
     public float speed = 0.1f;
     public GameObject platform;
+
+    GameObject player_manager;
     GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        player_manager = GameObject.Find("PlayersManager");
     }
 
     // Update is called once per frame
@@ -48,10 +50,10 @@ public class TechScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player") && player_manager.GetComponent<PlayerManager>().GetActivePlayer() == 2)
         {
-            TechGame.SetActive(true);
             player = other.gameObject;
+            TechGame.SetActive(true);
             player.GetComponent<Movement>().restrict_movement = true;
         }
     }
