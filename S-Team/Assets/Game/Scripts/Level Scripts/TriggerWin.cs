@@ -9,8 +9,9 @@ public class TriggerWin : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            //levelmanager.nextlevel();
-            Debug.Log("NEXT");
+            LevelManager.NextLevel();
+            Debug.Log("Next Level");
+            
         }
     }
 }
