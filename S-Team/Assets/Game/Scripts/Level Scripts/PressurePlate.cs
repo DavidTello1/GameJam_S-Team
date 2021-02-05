@@ -9,7 +9,7 @@ public class PressurePlate : MonoBehaviour
     public bool pressed = false;
     public PlayerScientist playerScience;
 
-    private float stayTime = 3.0f;
+    private float stayTime = 1.5f;
     private bool start_timer = false;
 
     // Update is called once per frame
