@@ -48,8 +48,9 @@ public static class LevelManager
     }
 
     // Loads level "level" or Restarts the current level if not argument passed 
-    public static void LoadLevel()
+    public static void LoadLevel(int level = -1)
     {
+        current_level = level > -1 ? level : current_level; 
         FadeToBlack();
     }
     

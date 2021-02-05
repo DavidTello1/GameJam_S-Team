@@ -27,6 +27,6 @@ public class PauseMenu : MonoBehaviour
 
     public void OnMainMenuButtonClicked()
     {
-        SceneManager.LoadScene("MainMenu");
+        LevelManager.LoadLevel(0);
     }
 }
