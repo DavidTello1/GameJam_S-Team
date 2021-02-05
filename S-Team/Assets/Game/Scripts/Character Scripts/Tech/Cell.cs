@@ -7,7 +7,7 @@ using UnityEngine.EventSystems;
 public class Cell : MonoBehaviour
 {
     public Vector2 pos;
-    private bool is_node;
+    public bool is_node;
     private TechManager tech_manager;
 
     // Start is called before the first frame update
@@ -24,6 +24,16 @@ public class Cell : MonoBehaviour
         {
             is_node = true;
             GetComponent<Image>().color = Color.blue;
+        }
+        else if (tech_manager.nodes >= 3 && (pos == tech_manager.node3_start || pos == tech_manager.node3_end))
+        {
+            is_node = true;
+            GetComponent<Image>().color = Color.green;
+        }
+        else if (tech_manager.nodes == 4 && (pos == tech_manager.node4_start || pos == tech_manager.node4_end))
+        {
+            is_node = true;
+            GetComponent<Image>().color = Color.yellow;
         }
         else
         {
@@ -49,11 +59,7 @@ public class Cell : MonoBehaviour
                     if (cell.GetComponent<Image>().color == tech_manager.current_color && !cell.GetComponent<Cell>().is_node)
                         cell.GetComponent<Image>().color = Color.white;
                 }
-
-                if (GetComponent<Image>().color == Color.red)
-                    tech_manager.color1_completed = false;
-                else if (GetComponent<Image>().color == Color.blue)
-                    tech_manager.color2_completed = false;
+                UpdateCompleted(false);
             }
             else
                 tech_manager.current_color = Color.white;
@@ -96,11 +102,7 @@ public class Cell : MonoBehaviour
         {
             if (GetComponent<Image>().color != tech_manager.current_color)
             {
-                if (GetComponent<Image>().color == Color.red)
-                    tech_manager.color1_completed = false;
-                else if (GetComponent<Image>().color == Color.blue)
-                    tech_manager.color2_completed = false;
-
+                UpdateCompleted(false);
                 foreach (GameObject cell in tech_manager.cells)
                 {
                     if (cell.GetComponent<Image>().color == tech_manager.current_color && !cell.GetComponent<Cell>().is_node)
@@ -108,20 +110,11 @@ public class Cell : MonoBehaviour
                 }
             }
             else
-            {
-                if (GetComponent<Image>().color == Color.red)
-                    tech_manager.color1_completed = true;
-                else if (GetComponent<Image>().color == Color.blue)
-                    tech_manager.color2_completed = true;
-            }
+                UpdateCompleted(true);
         }
         else
         {
-            if (GetComponent<Image>().color == Color.red)
-                tech_manager.color1_completed = false;
-            else if (GetComponent<Image>().color == Color.blue)
-                tech_manager.color2_completed = false;
-
+            UpdateCompleted(false);
             foreach (GameObject cell in tech_manager.cells)
             {
                 if (cell != gameObject && cell.GetComponent<Image>().color == GetComponent<Image>().color && !cell.GetComponent<Cell>().is_node)
@@ -130,5 +123,17 @@ public class Cell : MonoBehaviour
             GetComponent<Image>().color = Color.white;
         }
         tech_manager.current_color = Color.white;
+    }
+
+    private void UpdateCompleted(bool set)
+    {
+        if (GetComponent<Image>().color == Color.red)
+            tech_manager.color1_completed = set;
+        else if (GetComponent<Image>().color == Color.blue)
+            tech_manager.color2_completed = set;
+        else if (GetComponent<Image>().color == Color.green)
+            tech_manager.color3_completed = set;
+        else if (GetComponent<Image>().color == Color.yellow)
+            tech_manager.color4_completed = set;
     }
 }

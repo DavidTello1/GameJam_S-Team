@@ -9,7 +9,17 @@ public class ChessWin : MonoBehaviour
     private float stayTime = 2.0f;
     private bool start_timer = false;
 
-    public bool level_completed = false;
+    public Material WinMaterial;
+
+    bool level_completed = false;
+    float slider_value = 0.0f;
+
+    Renderer king_renderer;
+
+    private void Start()
+    {
+        king_renderer = GameObject.Find("KingDark").GetComponent<Renderer>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +31,24 @@ public class ChessWin : MonoBehaviour
             //Code to change to lvl2 here
             level_completed = true;
             start_timer = false;
+        }
+
+        if(level_completed)
+        {
+            if (slider_value < 1)
+            {
+                slider_value += 0.25f * Time.deltaTime;
+
+                if (slider_value > 1)
+                    slider_value = 1;
+            }
+            else
+            {
+                GameObject.Find("Door").GetComponent<Renderer>().material = WinMaterial;
+                GameObject.Find("WinCollider").GetComponent<BoxCollider>().isTrigger = true;
+            }
+
+            king_renderer.material.SetFloat("_Dissolve", slider_value);
         }
           
     }
