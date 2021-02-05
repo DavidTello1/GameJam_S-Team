@@ -22,7 +22,7 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void MainMenuPlay(int level)
+    public static void MainMenuPlay(int level)
     {
         LevelManager.current_level = level;
         LevelManager.LoadLevel();

@@ -36,8 +36,6 @@ public static class LevelManager
 
         timeStep = 1.0f / transitionTime;
 
-        FadeToWhite();
-
         SceneManager.sceneLoaded += OnSceneLoaded;
 
     }

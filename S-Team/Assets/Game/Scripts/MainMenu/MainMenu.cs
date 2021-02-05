@@ -126,18 +126,7 @@ public class MainMenu : MonoBehaviour
     // --- LEVELS ---
     public void OnPlayButtonClicked()
     {
-        if (current_level == 1)
-            SceneManager.LoadScene("Level1");
-        else if (current_level == 2)
-            SceneManager.LoadScene("Level2");
-        else if (current_level == 3)
-            SceneManager.LoadScene("Level3");
-        else if (current_level == 4)
-            SceneManager.LoadScene("Level4");
-        else if (current_level == 5)
-            SceneManager.LoadScene("Level5");
-        else if (current_level == 6)
-            SceneManager.LoadScene("Level6");
+        GameController.MainMenuPlay(current_level);
     }
 
     private void SetLevelPreview(int level)
