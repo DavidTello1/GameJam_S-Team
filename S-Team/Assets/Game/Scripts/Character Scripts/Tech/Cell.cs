@@ -7,9 +7,6 @@ using UnityEngine.EventSystems;
 public class Cell : MonoBehaviour
 {
     public Vector2 pos;
-    public Vector2 prev_cell;
-    public Vector2 next_cell;
-
     private bool is_node;
     private TechManager tech_manager;
 
@@ -68,7 +65,6 @@ public class Cell : MonoBehaviour
             {
                 if (GetComponent<Image>().color != tech_manager.current_color)
                     ClearPath();
-                //tech_manager.current_color = GetComponent<Image>().color;
             }
             else
             {
@@ -96,7 +92,6 @@ public class Cell : MonoBehaviour
 
     public void ClearPath()
     {
-        Debug.Log(is_node);
         if (is_node)
         {
             if (GetComponent<Image>().color != tech_manager.current_color)

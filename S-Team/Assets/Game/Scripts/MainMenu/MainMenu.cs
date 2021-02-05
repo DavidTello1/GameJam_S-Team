@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
@@ -9,12 +10,15 @@ public class MainMenu : MonoBehaviour
 
     [Header("Levels")]
     public GameObject Levels;
-    public int max_levels = 3;
+    public int max_levels = 6;
     public int current_level = 1;
-    public int last_completed = 0;
     public GameObject Level_1;
     public GameObject Level_2;
     public GameObject Level_3;
+    public GameObject Level_4;
+    public GameObject Level_5;
+    public GameObject Level_6;
+
     public GameObject PrevButton;
     public GameObject NextButton;
 
@@ -32,12 +36,6 @@ public class MainMenu : MonoBehaviour
     private void Awake()
     {
         current_panel = Main;
-    }
-
-    private void Start()
-    {
-        // GetLastLevelCompleted()
-        current_level = last_completed + 1;
     }
 
     private void SetActivePanel(string activePanel)
@@ -72,6 +70,11 @@ public class MainMenu : MonoBehaviour
     {
         SetActivePanel(Credits.name);
         current_panel = Credits;
+    }
+
+    public void OnExitButtonClicked()
+    {
+        Application.Quit();
     }
 
     // --- SHARED ---
@@ -123,7 +126,18 @@ public class MainMenu : MonoBehaviour
     // --- LEVELS ---
     public void OnPlayButtonClicked()
     {
-        // LoadScene
+        if (current_level == 1)
+            SceneManager.LoadScene("Level1");
+        else if (current_level == 2)
+            SceneManager.LoadScene("Level2");
+        else if (current_level == 3)
+            SceneManager.LoadScene("Level3");
+        else if (current_level == 4)
+            SceneManager.LoadScene("Level4");
+        else if (current_level == 5)
+            SceneManager.LoadScene("Level5");
+        else if (current_level == 6)
+            SceneManager.LoadScene("Level6");
     }
 
     private void SetLevelPreview(int level)
