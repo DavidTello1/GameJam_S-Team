@@ -38,6 +38,8 @@ public class PlayerManager : MonoBehaviour
     [Header("Camera")]
     public GameObject camera;
 
+    AudioSource sound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +51,8 @@ public class PlayerManager : MonoBehaviour
 
         position = Vector3.zero;
         rotation = Quaternion.identity;
+
+        sound = GetComponent<AudioSource>(); 
     }
 
     // Update is called once per frame
@@ -62,6 +66,7 @@ public class PlayerManager : MonoBehaviour
 
         if(Input.GetKeyDown(KeyCode.Alpha1))
         {
+
             if(player != ActivePlayer.Green)
             {
                 //Destroy active player
@@ -135,6 +140,11 @@ public class PlayerManager : MonoBehaviour
                 player = ActivePlayer.Blue;
                 SetActiveUI((int)player);
             }
+        }
+
+        if(Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            sound.PlayOneShot(sound.clip);
         }
     }
 
