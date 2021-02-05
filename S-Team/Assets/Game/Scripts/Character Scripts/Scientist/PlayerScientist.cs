@@ -9,7 +9,7 @@ public class PlayerScientist : MonoBehaviour
     public float minSize = 0.5f;
     public float currentSize = 1.0f;
 
-    private Vector3 last_size = Vector3.zero;
+    private Vector3 last_size = Vector3.one;
 
     private float time = 0;
     private float transition_time = 2.0f;
