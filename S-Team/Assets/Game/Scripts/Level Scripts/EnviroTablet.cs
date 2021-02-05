@@ -31,6 +31,9 @@ public class EnviroTablet : MonoBehaviour
         if(input.text == correct_answer)
         {
             correct = true;
+            input.text = "";
+            player.GetComponent<Movement>().restrict_movement = false;
+            input.gameObject.SetActive(false);
         }
     }
 

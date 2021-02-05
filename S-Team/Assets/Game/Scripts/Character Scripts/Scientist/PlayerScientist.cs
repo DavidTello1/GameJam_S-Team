@@ -15,6 +15,8 @@ public class PlayerScientist : MonoBehaviour
     private float transition_time = 2.0f;
     private float time_step = 0.0f;
 
+    private bool reset_mov = false;
+
     private void Start()
     {
         time_step = 1.0f / transition_time;
@@ -24,8 +26,18 @@ public class PlayerScientist : MonoBehaviour
     {
         time += time_step * Time.deltaTime;
 
+        if (time > 1.0f && reset_mov)
+        {
+            GetComponent<Movement>().restrict_movement = false;
+            reset_mov = !reset_mov;
+        }
+
+        if (GetComponent<Movement>().restrict_movement == true)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Q))
         {
+            reset_mov = true;
             last_size = transform.localScale;
             time = 0;
             GetComponent<Movement>().restrict_movement = true;
@@ -42,6 +54,7 @@ public class PlayerScientist : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.E))
         {
+            reset_mov = true;
             last_size = transform.localScale;
             time = 0;
             GetComponent<Movement>().restrict_movement = true;
@@ -58,8 +71,7 @@ public class PlayerScientist : MonoBehaviour
             }
         }
 
-        if (time > 1.0f)
-            GetComponent<Movement>().restrict_movement = false;
+               
 
 
     }
