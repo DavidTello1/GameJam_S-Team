@@ -14,6 +14,8 @@ public class MathLevelManager : MonoBehaviour
     public GameObject tablet;
     public GameObject plate;
 
+    public Material mat;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -41,6 +43,12 @@ public class MathLevelManager : MonoBehaviour
         {
             foreach (Renderer rend in rendererList_R)
                 rend.material = emissiveMat;
+        }
+
+        if(plate.GetComponent<PressurePlate>().pressed && tablet.GetComponent<EnviroTablet>().correct)
+        {
+            GameObject.Find("Door").GetComponent<Renderer>().material = mat;
+            GameObject.Find("WinCollider").GetComponent<BoxCollider>().isTrigger = true;
         }
     }
 }
