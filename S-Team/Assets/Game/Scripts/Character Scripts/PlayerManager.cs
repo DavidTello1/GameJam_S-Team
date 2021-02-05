@@ -20,6 +20,9 @@ public class PlayerManager : MonoBehaviour
     public GameObject purple;
     public GameObject blue;
 
+    [Header("Spawn Point")]
+    public Transform spawn;
+
     [Header("UI Icons")]
     public Image science;
     public Image tech;
@@ -38,7 +41,7 @@ public class PlayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        active = GameObject.Instantiate(green, Vector3.zero, Quaternion.identity);
+        active = GameObject.Instantiate(green, spawn.position, Quaternion.identity);
         player = ActivePlayer.Green;
         SetActiveUI((int)player);
 

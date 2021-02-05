@@ -6,8 +6,10 @@ public class ChessWin : MonoBehaviour
 {
     // Start is called before the first frame update
     public float timer;
-    private float stayTime = 15.0f;
+    private float stayTime = 2.0f;
     private bool start_timer = false;
+
+    public bool level_completed = false;
     // Update is called once per frame
     void Update()
     {
@@ -17,7 +19,7 @@ public class ChessWin : MonoBehaviour
         if(timer > stayTime)
         {
             //Code to change to lvl2 here
-            Debug.Log("Change scene");
+            level_completed = true;
             start_timer = false;
         }
           
