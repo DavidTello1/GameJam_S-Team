@@ -297,8 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f7376e315dff44ca8b32831863ae52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  color1_completed: 0
-  color2_completed: 0
+  completed: 0
   FirstCellPos: {fileID: 8911466249492334312}
   CellPrefab: {fileID: 6627763825354295900, guid: 6ec0cfc1d146e9949a3e27e9d964ecec,
     type: 3}
@@ -306,7 +305,16 @@ MonoBehaviour:
   cell_size: 78
   current_color: {r: 1, g: 1, b: 1, a: 1}
   cells: []
+  nodes: 2
+  color1_completed: 0
+  color2_completed: 0
+  color3_completed: 0
+  color4_completed: 0
   node1_start: {x: 0, y: 0}
   node1_end: {x: 2, y: 2}
   node2_start: {x: 3, y: 1}
   node2_end: {x: 4, y: 4}
+  node3_start: {x: 0, y: 0}
+  node3_end: {x: 0, y: 0}
+  node4_start: {x: 0, y: 0}
+  node4_end: {x: 0, y: 0}
