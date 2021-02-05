@@ -10,14 +10,13 @@ public class MainMenu : MonoBehaviour
 
     [Header("Levels")]
     public GameObject Levels;
-    public int max_levels = 6;
+    public int max_levels = 5;
     public int current_level = 1;
     public GameObject Level_1;
     public GameObject Level_2;
     public GameObject Level_3;
     public GameObject Level_4;
     public GameObject Level_5;
-    public GameObject Level_6;
 
     public GameObject PrevButton;
     public GameObject NextButton;
@@ -134,5 +133,7 @@ public class MainMenu : MonoBehaviour
         Level_1.SetActive(level.Equals(1));
         Level_2.SetActive(level.Equals(2));
         Level_3.SetActive(level.Equals(3));
+        Level_4.SetActive(level.Equals(4));
+        Level_5.SetActive(level.Equals(5));
     }
 }
