@@ -6191,7 +6191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9ac7721f2cfa784a9eff94c57673b0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  operation: '8 / 2 * ( 2 + 2 ) = '
+  operation: '8/2*(2+2)= '
   runic: {fileID: 11400000, guid: 0d0801b25b30db94f872607abb25d3e5, type: 2}
   _default: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   playermanager: {fileID: 1844920227}
@@ -12337,7 +12337,7 @@ GameObject:
   - component: {fileID: 1969841131}
   - component: {fileID: 1969841130}
   m_Layer: 0
-  m_Name: LevelManager
+  m_Name: LightManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
