@@ -11,12 +11,14 @@ public class PressurePlate : MonoBehaviour
 
     private float stayTime = 3.0f;
     private bool start_timer = false;
-    private bool found = false;
 
     // Update is called once per frame
     void Update()
     {
-        playerScience = GameObject.Find("ScienceFemale Variant(Clone)").GetComponent<PlayerScientist>();
+        GameObject obj = GameObject.Find("ScienceFemale Variant(Clone)");
+        
+        if (obj && !pressed)
+            playerScience = obj.GetComponent<PlayerScientist>();
 
         if (start_timer && !pressed)
             timer += Time.deltaTime;
