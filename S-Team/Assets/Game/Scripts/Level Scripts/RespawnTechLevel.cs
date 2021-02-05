@@ -27,9 +27,12 @@ public class RespawnTechLevel : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Collision");
             if (current_checkpoint == 1)
+            {
+
+                Debug.Log("Collision");
                 other.gameObject.transform.position = SpawnPoint_1.transform.position;
+            }
             else if (current_checkpoint == 2)
                 other.gameObject.transform.position = SpawnPoint_2.transform.position;
             else if (current_checkpoint == 3)
