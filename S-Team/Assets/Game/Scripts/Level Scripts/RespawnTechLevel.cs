@@ -11,10 +11,12 @@ public class RespawnTechLevel : MonoBehaviour
     public GameObject SpawnPoint_2;
     public GameObject SpawnPoint_3;
 
+    GameObject player_manager;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        player_manager = GameObject.Find("PlayersManager");
     }
 
     // Update is called once per frame
@@ -28,15 +30,11 @@ public class RespawnTechLevel : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             if (current_checkpoint == 1)
-            {
-
-                Debug.Log("Collision");
-                other.gameObject.transform.position = SpawnPoint_1.transform.position;
-            }
+                player_manager.GetComponent<PlayerManager>().RespawnPlayer(SpawnPoint_1.transform);
             else if (current_checkpoint == 2)
-                other.gameObject.transform.position = SpawnPoint_2.transform.position;
+                player_manager.GetComponent<PlayerManager>().RespawnPlayer(SpawnPoint_2.transform);
             else if (current_checkpoint == 3)
-                other.gameObject.transform.position = SpawnPoint_3.transform.position;
+                player_manager.GetComponent<PlayerManager>().RespawnPlayer(SpawnPoint_3.transform);
         }
     }
 }
