@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class TechManager : MonoBehaviour
 {
+    public bool color1_completed = false;
+    public bool color2_completed = false;
+
     public Transform FirstCellPos;
-    public GameObject BackGround;
     public GameObject CellPrefab;
 
     public int grid_size = 5;
@@ -31,21 +33,7 @@ public class TechManager : MonoBehaviour
                 cells.Add(cell);
 
                 Vector2 current_pos = new Vector2(i, j);
-                cell.GetComponent<Image>().color = Color.white;
                 cell.GetComponent<Cell>().pos = current_pos;
-
-                Debug.Log(current_pos);
-                if (current_pos == node1_start || current_pos == node1_end)
-                {
-                    Debug.Log("Is Node");
-                    cell.GetComponent<Cell>().is_node = true;
-                    cell.GetComponent<Image>().color = Color.red;
-                }
-                else if (current_pos == node2_start || current_pos == node2_end)
-                {
-                    cell.GetComponent<Cell>().is_node = true;
-                    cell.GetComponent<Image>().color = Color.blue;
-                }
             }
         }
     }
@@ -53,6 +41,9 @@ public class TechManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (color1_completed && color2_completed)
+        {
+            Debug.Log("WIN");
+        }
     }
 }
