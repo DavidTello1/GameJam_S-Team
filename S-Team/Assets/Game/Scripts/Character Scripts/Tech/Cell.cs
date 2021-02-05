@@ -8,13 +8,11 @@ public class Cell : MonoBehaviour
 {
     public Vector2 pos;
     public bool is_node;
-    private TechManager tech_manager;
+    public TechManager tech_manager;
 
     // Start is called before the first frame update
     void Start()
     {
-        tech_manager = transform.parent.gameObject.GetComponent<TechManager>();
-
         if (pos == tech_manager.node1_start || pos == tech_manager.node1_end)
         {
             is_node = true;
