@@ -21,14 +21,16 @@ public class Movement : MonoBehaviour
     public EngineerPush ePush;
 
     private AudioSource runningSound;
-    private float walk_time = 0f; 
+    private float walk_time = 0f;
+    private PlayerManager manager;
 
     void Start()
     {
         characterController = GetComponent<CharacterController>();
         anim = GetComponent<Animator>();
         ePush = GetComponent<EngineerPush>();
-        runningSound = GetComponent<AudioSource>(); 
+        runningSound = GetComponent<AudioSource>();
+        manager = GameObject.Find("PlayersManager").GetComponent<PlayerManager>();
     }
 
     void Update()
@@ -77,8 +79,12 @@ public class Movement : MonoBehaviour
 
                 if (walk_time > 0.4f)
                 {
-                    runningSound.Play();
-                    walk_time = 0f;
+                    // avoid engineer to sound steps while pushing
+                    if (!(manager.GetActivePlayer() == (int)ActivePlayer.Yellow && ePush && ePush.isPushing))
+                    {
+                        runningSound.Play();
+                        walk_time = 0f;
+                    }
                 }
                     
             }

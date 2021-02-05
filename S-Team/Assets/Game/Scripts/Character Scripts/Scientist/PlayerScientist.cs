@@ -28,6 +28,7 @@ public class PlayerScientist : MonoBehaviour
         {
             last_size = transform.localScale;
             time = 0;
+            GetComponent<Movement>().restrict_movement = true;
             // Is grown -> idle
             if (currentSize > 1.0f)
             {
@@ -43,6 +44,8 @@ public class PlayerScientist : MonoBehaviour
         {
             last_size = transform.localScale;
             time = 0;
+            GetComponent<Movement>().restrict_movement = true;
+
             // Is shrinked -> idle
             if (currentSize < 1.0f)
             {
@@ -54,6 +57,10 @@ public class PlayerScientist : MonoBehaviour
                 currentSize = 2.0f;
             }
         }
+
+        if (time > 1.0f)
+            GetComponent<Movement>().restrict_movement = false;
+
 
     }
 

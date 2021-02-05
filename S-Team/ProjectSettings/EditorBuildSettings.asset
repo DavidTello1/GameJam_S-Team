@@ -6,8 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/TestScenes/SampleScene.unity
-    guid: d1c3109bdb54ad54c8a2b2838528e640
+    path: Assets/Scenes/FinalScenes/MainMenu.unity
+    guid: ab3ab490e39a1644883475152bb51649
   - enabled: 1
     path: Assets/Scenes/FinalScenes/EngineerLevel.unity
     guid: e28af01b48e63f44c9698f9b28e48f11
@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/FinalScenes/ScienceScene.unity
     guid: 0806ddd298d77d54ea47faaa6e2f44fe
   - enabled: 1
+    path: Assets/Scenes/FinalScenes/MathScene.unity
+    guid: b1bfc9c9f48037046b4ac940795e81a2
+  - enabled: 1
     path: Assets/Scenes/FinalScenes/TechScene.unity
     guid: c2cff87a3ad2dd54a89e2d89667ab1f6
+  - enabled: 1
+    path: Assets/Scenes/FinalScenes/ArtLevel.unity
+    guid: bf1f119ba00d11f4db8e9b3ee7c585ce
   m_configObjects: {}
