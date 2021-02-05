@@ -1422,9 +1422,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   restrict_movement: 0
-  speed: 5
+  speed: 3.5
   slowSpeed: 0.5
-  jumpSpeed: 8
+  jumpSpeed: 7
   gravity: 20
   turnSmoothTime: 0.1
   moveDirection: {x: 0, y: 0, z: 0}
