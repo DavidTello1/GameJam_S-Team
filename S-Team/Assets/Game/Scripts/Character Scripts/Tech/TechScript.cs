@@ -50,7 +50,7 @@ public class TechScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Player") && player_manager.GetComponent<PlayerManager>().GetActivePlayer() == 2)
+        if (other.gameObject.CompareTag("Player") && player_manager.GetComponent<PlayerManager>().GetActivePlayer() == 1)
         {
             player = other.gameObject;
             TechGame.SetActive(true);
