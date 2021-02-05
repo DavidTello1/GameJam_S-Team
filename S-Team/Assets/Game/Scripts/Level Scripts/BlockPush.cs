@@ -16,7 +16,7 @@ public class BlockPush : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (grounded == true && transform.position.y < -0.74f)
+        if (grounded == true && transform.position.y < -0.75f)
         {
             pos_x = transform.position.x;
             grounded = false;
