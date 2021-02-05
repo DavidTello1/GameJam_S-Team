@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -7331,6 +7331,81 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: nodes
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node1_end.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node1_end.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node2_end.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node2_end.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node3_end.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node3_end.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node4_end.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node4_end.y
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node1_start.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node1_start.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node2_start.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node3_start.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node4_start.x
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8911466250296677426, guid: 0a476ea4280e79445a9b03820917b029,
+        type: 3}
+      propertyPath: node4_start.y
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a476ea4280e79445a9b03820917b029, type: 3}
 --- !u!1001 &1299175695
@@ -11301,6 +11376,16 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 3922308353689830556, guid: 653912519f52fea45928b0fedf53afb5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922308354542134063, guid: 653912519f52fea45928b0fedf53afb5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 653912519f52fea45928b0fedf53afb5, type: 3}
 --- !u!1001 &2060527473
@@ -12408,7 +12493,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6781034938040113038}
+      - m_Target: {fileID: 0}
         m_MethodName: OnMainMenuButtonClicked
         m_Mode: 1
         m_Arguments:
@@ -12491,19 +12576,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6781034938040113039}
   m_CullTransparentMesh: 0
---- !u!114 &6781034938040113038
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6781034938040113039}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f178cdd6a83f9894abe3f8d35faa45d1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Pause: {fileID: 6781034937284423740}
 --- !u!1 &6781034938040113039
 GameObject:
   m_ObjectHideFlags: 0
@@ -12517,7 +12589,6 @@ GameObject:
   - component: {fileID: 6781034938040113043}
   - component: {fileID: 6781034938040113036}
   - component: {fileID: 6781034938040113037}
-  - component: {fileID: 6781034938040113038}
   m_Layer: 5
   m_Name: Win Screen
   m_TagString: Untagged

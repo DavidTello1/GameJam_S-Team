@@ -24,10 +24,10 @@ public class TriggerWin : MonoBehaviour
             if (winMenu != null)
             {
                 winMenu.SetActive(true);
+                other.gameObject.GetComponent<Movement>().restrict_movement = true;
             }
             else
             {
-
                 LevelManager.NextLevel();
             }
             
