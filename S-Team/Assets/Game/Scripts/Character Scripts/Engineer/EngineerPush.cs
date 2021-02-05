@@ -13,9 +13,12 @@ public class EngineerPush : MonoBehaviour
     [Tooltip("Conditional to control player touching a cube")]
     public bool isPushing = false;
 
+    Animator anim;
+
     void Start()
     {
         playerMove = GetComponent<Movement>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
@@ -25,17 +28,20 @@ public class EngineerPush : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, 1.1f, layerMask))
+        if (Physics.Raycast(transform.position, transform.forward, out hit, 0.75f, layerMask))
         {
             if(hit.distance > 0.1)
             {
                 isPushing = true;
+                anim.SetBool("Push", true);
+                anim.SetTrigger("PushEvent");
                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * hit.distance, Color.green);
             }
         }
         else
         {
             isPushing = false;
+            anim.SetBool("Push", false);
             Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 100, Color.red);
         }
             
