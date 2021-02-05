@@ -643,7 +643,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 244fb0fc78cecdb48aaf21ddfbb3f135, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01894353faa968a4c9a9b9f48af01e6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3758,7 +3758,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 01894353faa968a4c9a9b9f48af01e6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 244fb0fc78cecdb48aaf21ddfbb3f135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6083,6 +6083,7 @@ Transform:
   - {fileID: 2137434438}
   - {fileID: 505483180}
   - {fileID: 626926828}
+  - {fileID: 1355373815}
   - {fileID: 180236583}
   - {fileID: 1495769703}
   - {fileID: 1803774297}
@@ -6108,7 +6109,6 @@ Transform:
   - {fileID: 654944270}
   - {fileID: 1801750802}
   - {fileID: 255097134}
-  - {fileID: 1355373815}
   - {fileID: 429272033}
   - {fileID: 1855783420}
   - {fileID: 944822059}
@@ -9018,8 +9018,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 7550bf33aa50e4f42acf121433c0e6f2, type: 3}
 --- !u!4 &1355373815 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 4894126544131658, guid: 7550bf33aa50e4f42acf121433c0e6f2,
-    type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1355373814}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1363938940

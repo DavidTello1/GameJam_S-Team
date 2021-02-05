@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -764,7 +764,7 @@ Transform:
   m_LocalScale: {x: 0.04313427, y: 0.060370732, z: 0.008290477}
   m_Children: []
   m_Father: {fileID: 562318604}
-  m_RootOrder: 65
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 90.16901, y: -0.000015258789, z: -0.000015258789}
 --- !u!65 &113121169
 BoxCollider:
@@ -3821,6 +3821,8 @@ Transform:
   m_LocalPosition: {x: -1.02, y: -13.09, z: 23.72304}
   m_LocalScale: {x: 67.59127, y: 67.59127, z: 67.591286}
   m_Children:
+  - {fileID: 1415936385}
+  - {fileID: 113121168}
   - {fileID: 851835041}
   - {fileID: 1847050817}
   - {fileID: 1820191242}
@@ -3833,7 +3835,6 @@ Transform:
   - {fileID: 1624177365}
   - {fileID: 953101136}
   - {fileID: 676060624}
-  - {fileID: 1415936385}
   - {fileID: 208670773}
   - {fileID: 1435918148}
   - {fileID: 1547862586}
@@ -3886,7 +3887,6 @@ Transform:
   - {fileID: 803158680}
   - {fileID: 1522138840}
   - {fileID: 1689709528}
-  - {fileID: 113121168}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -6103,7 +6103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 244fb0fc78cecdb48aaf21ddfbb3f135, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 01894353faa968a4c9a9b9f48af01e6b, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -7455,7 +7455,7 @@ Transform:
   m_Children:
   - {fileID: 2142497729}
   m_Father: {fileID: 562318604}
-  m_RootOrder: 12
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1430170231
 GameObject:
@@ -7513,7 +7513,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 01894353faa968a4c9a9b9f48af01e6b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 244fb0fc78cecdb48aaf21ddfbb3f135, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
